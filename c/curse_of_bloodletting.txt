@@ -1,7 +1,8 @@
 Name:Curse of Bloodletting
 ManaCost:3 R R
 Types:Enchantment Aura Curse
-Text:Enchant player
+Text:no text
+K:Enchant player
 A:SP$ Attach | Cost$ 3 R R | ValidTgts$ Player | AILogic$ Curse
 R:Event$ DamageDone | ValidTarget$ Player.EnchantedBy | ReplaceWith$ DmgTimes2 | IsCombat$ False | Description$ If a source would deal damage to enchanted player, it deals double that damage instead.
 R:Event$ DamageDone | ValidTarget$ Player.EnchantedBy | ReplaceWith$ DmgTimes2Combat | IsCombat$ True
