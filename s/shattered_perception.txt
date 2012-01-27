@@ -9,4 +9,5 @@ SVar:X:Remembered$Amount
 K:Flashback 5 R
 SVar:RemAIDeck:True
 SVar:Picture:http://www.wizards.com/global/images/magic/general/shattered_perception.jpg
+SetInfo:DKA|Uncommon|http://magiccards.info/scans/en/dka/104.jpg
 End

@@ -9,4 +9,5 @@ S:Mode$ Continuous | Affected$ Creature.nonHuman+Other+YouCtrl | AddPower$ 1 | A
 SVar:TrigDestroy:AB$Destroy | Cost$ 0 | Defined$ TriggeredSource
 SVar:Rarity:Mythic
 SVar:Picture:http://www.wizards.com/global/images/magic/general/mikaeus_the_unhallowed.jpg
+SetInfo:DKA|Mythic|http://magiccards.info/scans/en/dka/70.jpg
 End

@@ -10,4 +10,5 @@ SVar:DmgTimes2:AB$DealDamage | Cost$ 0 | Defined$ EnchantedPlayer | DamageSource
 SVar:DmgTimes2Combat:AB$DealDamage | Cost$ 0 | CombatDamage$ True | Defined$ EnchantedPlayer | DamageSource$ ReplacedSource | NumDmg$ X
 SVar:X:ReplaceCount$DamageAmount/Times.2
 SVar:Picture:http://www.wizards.com/global/images/magic/general/curse_of_bloodletting.jpg
+SetInfo:DKA|Rare|http://magiccards.info/scans/en/dka/85.jpg
 End

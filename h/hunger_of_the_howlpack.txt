@@ -6,4 +6,5 @@ A:SP$ PutCounter | Cost$ G | ValidTgts$ Creature | TgtPrompt$ Select target crea
 SVar:X:Count$Morbid.3.1
 SVar:Rarity:Common
 SVar:Picture:http://www.wizards.com/global/images/magic/general/hunger_of_the_howlpack.jpg
+SetInfo:DKA|Common|http://magiccards.info/scans/en/dka/119.jpg
 End

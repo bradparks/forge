@@ -8,4 +8,5 @@ A:AB$Tap | Cost$ 1 | Defined$ Enchanted | SpellDescription$ Tap enchanted creatu
 SVar:RemAIDeck:True
 SVar:Rarity:Common
 SVar:Picture:http://www.wizards.com/global/images/magic/general/burden_of_guilt.jpg
+SetInfo:DKA|Common|http://magiccards.info/scans/en/dka/4.jpg
 End

@@ -6,4 +6,5 @@ A:SP$ Mill | Cost$ U | NumCards$ 2 | ValidTgts$ Player | TgtPrompt$ Choose a pla
 SVar:DBDraw:DB$Draw | NumCards$ 1
 SVar:Rarity:Common
 SVar:Picture:http://www.wizards.com/global/images/magic/general/thought_scour.jpg
+SetInfo:DKA|Common|http://magiccards.info/scans/en/dka/52.jpg
 End

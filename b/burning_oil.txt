@@ -6,4 +6,5 @@ A:SP$ DealDamage | Cost$ 1 R | ValidTgts$ Creature.attacking,Creature.blocking |
 K:Flashback 3 W
 SVar:Rarity:Common
 SVar:Picture:http://www.wizards.com/global/images/magic/general/burning_oil.txt
+SetInfo:DKA|Uncommon|http://magiccards.info/scans/en/dka/84.jpg
 End

@@ -7,4 +7,5 @@ SVar:DBShuffle:DB$ChangeZoneAll | ChangeType$ Card.YouOwn | Origin$ Graveyard | 
 SVar:X:Count$InYourYard/Times.2
 SVar:Rarity:Mythic
 SVar:Picture:http://www.wizards.com/global/images/magic/general/archangels_light.jpg
+SetInfo:DKA|Mythic|http://magiccards.info/scans/en/dka/1.jpg
 End

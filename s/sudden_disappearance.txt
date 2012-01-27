@@ -8,4 +8,5 @@ SVar:TrigReturn:DB$ChangeZoneAll | Origin$ Exile | Destination$ Battlefield | Ch
 SVar:PlayMain1:TRUE
 SVar:Rarity:Rare
 SVar:Picture:http://www.wizards.com/global/images/magic/general/sudden_disappearance.jpg
+SetInfo:DKA|Rare|http://magiccards.info/scans/en/dka/23.jpg
 End

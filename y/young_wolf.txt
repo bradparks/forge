@@ -6,4 +6,5 @@ PT:1/1
 K:Undying
 SVar:Rarity:Common
 SVar:Picture:http://www.wizards.com/global/images/magic/general/young_wolf.jpg
+SetInfo:DKA|Common|http://magiccards.info/scans/en/dka/134.jpg
 End

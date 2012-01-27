@@ -12,4 +12,5 @@ SVar:RemAIDeck:True
 SVar:Rarity:Mythic
 SVar:Picture:http://www.wizards.com/global/images/magic/general/falkenrath_aristocrat.jpg
 Oracle:Flying, haste\nSacrifice a creature: Falkenrath Aristocrat is indestructible this turn. If the sacrificed creature was a Human, put a +1/+1 counter on Falkenrath Aristocrat.
+SetInfo:DKA|Mythic|http://magiccards.info/scans/en/dka/138.jpg
 End

@@ -4,4 +4,5 @@ Types:Artifact Equipment
 Text:Equipped creature has intimidate.
 K:eqPump 2:Intimidate
 SVar:Picture:http://www.wizards.com/global/images/magic/general/executioners_hood.jpg
+SetInfo:DKA|Common|http://magiccards.info/scans/en/dka/148.jpg
 End

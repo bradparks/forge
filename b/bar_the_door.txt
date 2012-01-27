@@ -6,4 +6,5 @@ A:SP$ PumpAll | Cost$ 2 W | ValidCards$ Creature.YouCtrl | NumDef$ +4 | SpellDes
 SVar:RemAIDeck:True
 SVar:Rarity:Common
 SVar:Picture:http://www.wizards.com/global/images/magic/general/bar_the_door.jpg
+SetInfo:DKA|Common|http://magiccards.info/scans/en/dka/2.jpg
 End

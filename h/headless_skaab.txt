@@ -7,4 +7,5 @@ K:CARDNAME enters the battlefield tapped.
 SVar:FullCost:2 U ExileFromGrave<1/Creature>
 SVar:Rarity:Common
 SVar:Picture:http://www.wizards.com/global/images/magic/general/headless_skaab.jpg
+SetInfo:DKA|Common|http://magiccards.info/scans/en/dka/40.jpg
 End

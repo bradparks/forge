@@ -9,4 +9,5 @@ SVar:TrigToken:AB$Token | Cost$ 0 | TokenImage$ W 1 1 Spirit | TokenAmount$ 1 | 
 SVar:SacMe:1
 SVar:Rarity:Common
 SVar:Picture:http://www.wizards.com/global/images/magic/general/elgaud_inquisitor.jpg
+SetInfo:DKA|Common|http://magiccards.info/scans/en/dka/6.jpg
 End

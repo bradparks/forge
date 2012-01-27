@@ -7,4 +7,5 @@ A:AB$ Pump | Cost$ Sac<1/Creature> | KW$ Flying | SubAbility$ DBPutCounter | Spe
 SVar:DBPutCounter:DB$PutCounter | ConditionCheckSVar$ X | ConditionSVarCompare$ GE1 | CounterNum$ 1 | CounterType$ P1P1
 SVar:X:Sacrificed$Valid Human
 SVar:Picture:http://www.wizards.com/global/images/magic/general/falkenrath_torturer.jpg
+SetInfo:DKA|Common|http://magiccards.info/scans/en/dka/60.jpg
 End

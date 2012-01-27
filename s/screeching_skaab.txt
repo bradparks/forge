@@ -7,4 +7,5 @@ T:Mode$ ChangesZone | Origin$ Any | Destination$ Battlefield | ValidCard$ Card.S
 SVar:TrigMill:AB$Mill | Cost$ 0 | NumCards$ 2 | Defined$ You
 SVar:Rarity:Common
 SVar:Picture:http://www.wizards.com/global/images/magic/general/screeching_skaab.jpg
+SetInfo:DKA|Common|http://magiccards.info/scans/en/dka/47.jpg
 End

@@ -8,4 +8,5 @@ K:Trample
 K:Undying
 SVar:Rarity:Mythic
 SVar:Picture:http://www.wizards.com/global/images/magic/general/vorapede.jpg
+SetInfo:DKA|Mythic|http://magiccards.info/scans/en/dka/131.jpg
 End

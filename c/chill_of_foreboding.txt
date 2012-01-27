@@ -7,4 +7,5 @@ A:SP$ Mill | Cost$ 2 U | NumCards$ 5 | Defined$ Each | SpellDescription$ Each pl
 SVar:RemRandomDeck:True
 SVar:Rarity:Uncommon
 SVar:Picture:http://www.wizards.com/global/images/magic/general/chill_of_foreboding.jpg
+SetInfo:DKA|Uncommon|http://magiccards.info/scans/en/dka/32.jpg
 End

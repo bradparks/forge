@@ -7,4 +7,5 @@ SVar:FatefulHourPump:DB$PumpAll | ValidCards$ Creature.YouCtrl | KW$ HIDDEN Inde
 SVar:FatefulHour:Count$YourLifeTotal
 SVar:Rarity:Common
 SVar:Picture:http://www.wizards.com/global/images/magic/general/break_of_day.jpg
+SetInfo:DKA|Common|http://magiccards.info/scans/en/dka/3.jpg
 End
