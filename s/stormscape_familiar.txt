@@ -1,0 +1,13 @@
+Name:Stormscape Familiar
+ManaCost:1 U
+Types:Creature Bird
+Text:no text
+PT:1/1
+K:Flying
+K:CostChange:Player:Less:1:Spell:white/black:All:OnlyOneBonus:White spells and black spells you cast cost 1 less to cast.
+SVar:Rarity:Common
+SVar:Picture:http://www.wizards.com/global/images/magic/general/stormscape_familiar.jpg
+SetInfo:TSB|Special|http://magiccards.info/scans/en/tsts/32.jpg
+SetInfo:PLS|Common|http://magiccards.info/scans/en/ps/36.jpg
+Oracle:Flying\nWhite spells and black spells you cast cost {1} less to cast.
+End

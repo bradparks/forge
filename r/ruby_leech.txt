@@ -1,0 +1,12 @@
+Name:Ruby Leech
+ManaCost:1 R
+Types:Creature Leech
+Text:no text
+PT:2/2
+K:First Strike
+K:CostChange:Player:More:R:Spell:red:All:NoSpecial:Red spells you cast cost R more to cast.
+SVar:Rarity:Rare
+SVar:Picture:http://www.wizards.com/global/images/magic/general/ruby_leech.jpg
+SetInfo:INV|Rare|http://magiccards.info/scans/en/in/161.jpg
+Oracle:First strike\nRed spells you cast cost {R} more to cast.
+End

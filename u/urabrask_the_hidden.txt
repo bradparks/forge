@@ -1,0 +1,14 @@
+Name:Urabrask the Hidden
+ManaCost:3 R R
+Types:Legendary Creature Praetor
+Text:
+PT:4/4
+S:Mode$ Continuous | Affected$ Creature.YouCtrl | AddKeyword$ Haste | Description$ Creatures you control have haste.
+S:Mode$ ETBTapped | ValidCard$ Creature.YouDontCtrl | Description$ Creatures your opponents control enter the battlefield tapped.
+SVar:PlayMain1:TRUE
+SVar:BuffedBy:Creature
+SVar:Rarity:Mythic
+SVar:Picture:http://www.wizards.com/global/images/magic/general/urabrask_the_hidden.jpg
+SetInfo:NPH|Mythic|http://magiccards.info/scans/en/nph/98.jpg
+Oracle:Creatures you control have haste.\nCreatures your opponents control enter the battlefield tapped.
+End

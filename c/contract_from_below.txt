@@ -1,0 +1,18 @@
+Name:Contract from Below
+ManaCost:B
+Types:Sorcery
+Text:no text
+K:Remove CARDNAME from your deck before playing if you're not playing for ante.
+A:SP$ Discard | Cost$ B | Mode$ Hand | Defined$ You | SubAbility$ DBAnte | SpellDescription$ Discard your hand, add the top card of your library to the ante, then draw seven cards.
+SVar:DBAnte:DB$ ChangeZone | Defined$ TopOfLibrary | Origin$ Library | Destination$ Ante | SubAbility$ DBDraw
+SVar:DBDraw:DB$ Draw | Defined$ You | NumCards$ 7
+SVar:RemAIDeck:True
+SVar:RemRandomDeck:True
+SVar:Rarity:Rare
+SVar:Picture:http://www.wizards.com/global/images/magic/general/contract_from_below.jpg
+Oracle:Remove Contract from Below from your deck before playing if you're not playing for ante.\nDiscard your hand, add the top card of your library to the ante, then draw seven cards.
+SetInfo:LEA|Rare|http://magiccards.info/scans/en/al/5.jpg
+SetInfo:LEB|Rare|http://magiccards.info/scans/en/be/5.jpg
+SetInfo:3ED|Rare|http://magiccards.info/scans/en/rv/5.jpg
+SetInfo:2ED|Rare|http://magiccards.info/scans/en/un/5.jpg
+End

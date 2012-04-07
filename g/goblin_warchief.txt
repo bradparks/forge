@@ -1,0 +1,14 @@
+Name:Goblin Warchief
+ManaCost:1 R R
+Types:Creature Goblin
+Text:no text
+PT:2/2
+K:CostChange:Player:Less:1:Spell:All:Goblin:NoSpecial:Goblin spells you cast cost 1 less to cast.
+S:Mode$ Continuous | Affected$ Creature.Goblin+YouCtrl | AddKeyword$ Haste | Description$ Goblin creatures you control have haste.
+SVar:PlayMain1:TRUE
+SVar:BuffedBy:Goblin
+SVar:Rarity:Uncommon
+SVar:Picture:http://www.wizards.com/global/images/magic/general/goblin_warchief.jpg
+SetInfo:SCG|Uncommon|http://magiccards.info/scans/en/sc/97.jpg
+Oracle:Goblin spells you cast cost {1} less to cast.\nGoblin creatures you control have haste.
+End
