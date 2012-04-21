@@ -1,0 +1,9 @@
+Name:Terminus
+ManaCost:4 W W
+Types:Sorcery
+Text:no text
+K:Miracle:W
+A:SP$ DestroyAll | Cost$ 4 W W | ValidCards$ Creature | SpellDescription$ Destroy all creatures.
+SVar:Rarity:Rare
+SVar:Picture:http://www.wizards.com/global/images/magic/general/terminus.jpg
+End
