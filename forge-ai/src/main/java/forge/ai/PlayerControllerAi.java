@@ -54,9 +54,9 @@ import java.security.InvalidParameterException;
 import java.util.*;
 
 
-/** 
+/**
  * A prototype for player controller class
- * 
+ *
  * Handles phase skips for now.
  */
 public class PlayerControllerAi extends PlayerController {
@@ -67,11 +67,10 @@ public class PlayerControllerAi extends PlayerController {
 
         brains = new AiController(p, game);
     }
-    
+
     public void allowCheatShuffle(boolean value){
         brains.allowCheatShuffle(value);
     }
-    
 
     public SpellAbility getAbilityToPlay(List<SpellAbility> abilities, ITriggerEvent triggerEvent) {
         if (abilities.size() == 0) {
@@ -126,7 +125,7 @@ public class PlayerControllerAi extends PlayerController {
                 case BidLife:
                     return 0;
                 default:
-                    return null;   
+                    return null;
             }
         }
         return null; // return incorrect value to indicate that
@@ -169,7 +168,7 @@ public class PlayerControllerAi extends PlayerController {
     public boolean confirmAction(SpellAbility sa, PlayerActionConfirmMode mode, String message) {
         return getAi().confirmAction(sa, mode, message);
     }
-    
+
     @Override
     public boolean confirmBidAction(SpellAbility sa, PlayerActionConfirmMode mode, String string,
             int bid, Player winner) {
@@ -230,7 +229,7 @@ public class PlayerControllerAi extends PlayerController {
     public List<Card> orderBlockers(Card attacker, List<Card> blockers) {
         return AiBlockController.orderBlockers(attacker, blockers);
     }
-    
+
     @Override
     public java.util.List<Card> orderBlocker(Card attacker, Card blocker, java.util.List<Card> oldBlockers) {
     	return AiBlockController.orderBlocker(attacker, blocker, oldBlockers);
@@ -414,7 +413,7 @@ public class PlayerControllerAi extends PlayerController {
     public SpellAbility chooseSpellAbilityToPlay() {
         return brains.choooseSpellAbilityToPlay();
     }
-    
+
     @Override
     public void playChosenSpellAbility(SpellAbility sa)
     {
@@ -423,7 +422,7 @@ public class PlayerControllerAi extends PlayerController {
             player.playLand(sa.getHostCard(), false);
         else
             ComputerUtil.handlePlayingSpellAbility(player, sa, game);
-    }    
+    }
 
     @Override
     public List<Card> chooseCardsToDiscardToMaximumHandSize(int numDiscard) {
@@ -458,7 +457,7 @@ public class PlayerControllerAi extends PlayerController {
     public int chooseNumber(SpellAbility sa, String title, int min, int max) {
         return brains.chooseNumber(sa, title, min, max);
     }
-    
+
     public int chooseNumber(SpellAbility sa, String title, List<Integer> options, Player relatedPlayer) {
         return brains.chooseNumber(sa, title, options, relatedPlayer);
     }
@@ -561,7 +560,7 @@ public class PlayerControllerAi extends PlayerController {
         return new ImmutablePair<CounterType,String>(countersOnCard.get(random),"Remove");
     }
 
-    
+
     @Override
     public byte chooseColorAllowColorless(String message, Card card, ColorSet colors) {
         final String c = ComputerUtilCard.getMostProminentColor(player.getCardsIn(ZoneType.Hand));
@@ -572,7 +571,7 @@ public class PlayerControllerAi extends PlayerController {
             return Iterables.getFirst(colors, (byte)0);
         }
     }
-    
+
     @Override
     public byte chooseColor(String message, SpellAbility sa, ColorSet colors) {
         // You may switch on sa.getApi() here and use sa.getParam("AILogic")
@@ -581,8 +580,8 @@ public class PlayerControllerAi extends PlayerController {
             hand.addAll(player.getCardsIn(ZoneType.Stack));
         final String c = ComputerUtilCard.getMostProminentColor(hand);
         byte chosenColorMask = MagicColor.fromName(c);
-        
-        
+
+
         if ((colors.getColor() & chosenColorMask) != 0) {
             return chosenColorMask;
         } else {
@@ -614,7 +613,7 @@ public class PlayerControllerAi extends PlayerController {
 
     @Override
     public boolean confirmPayment(CostPart costPart, String prompt) {
-        return brains.confirmPayment(costPart); // AI is expected to know what it is paying for at the moment (otherwise add another parameter to this method) 
+        return brains.confirmPayment(costPart); // AI is expected to know what it is paying for at the moment (otherwise add another parameter to this method)
     }
 
     @Override
@@ -700,7 +699,7 @@ public class PlayerControllerAi extends PlayerController {
             ComputerUtil.playStack(sa, player, game);
         }
     }
-    
+
     private void prepareSingleSa(final Card host, final SpellAbility sa, boolean isMandatory){
         if (sa.hasParam("TargetingPlayer")) {
             Player targetingPlayer = AbilityUtils.getDefinedPlayers(host, sa.getParam("TargetingPlayer"), sa).get(0);
@@ -729,7 +728,7 @@ public class PlayerControllerAi extends PlayerController {
                 } else {
                     ComputerUtil.playStack(tgtSA, player, game);
                 }
-            } else 
+            } else
                 return false; // didn't play spell
         }
         return true;
@@ -768,12 +767,12 @@ public class PlayerControllerAi extends PlayerController {
     public void revealAnte(String message, Multimap<Player, PaperCard> removedAnteCards) {
         // Ai won't understand that anyway
     }
-    
+
     @Override
     public Collection<? extends PaperCard> complainCardsCantPlayWell(Deck myDeck) {
         return brains.complainCardsCantPlayWell(myDeck);
     }
-    
+
     @Override
     public List<Card> cheatShuffle(List<Card> list) {
         return brains.getBooleanProperty(AiProps.CHEAT_WITH_MANA_ON_SHUFFLE) ? brains.cheatShuffle(list) : list;

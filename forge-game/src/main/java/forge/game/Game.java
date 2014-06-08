@@ -6,12 +6,12 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -61,7 +61,7 @@ import forge.game.zone.Zone;
 import forge.game.zone.ZoneType;
 import forge.util.Aggregates;
 
-    /**
+/**
  * Represents the state of a <i>single game</i>, a new instance is created for each game.
  */
 public class Game {
@@ -87,7 +87,7 @@ public class Game {
     private final GameLog gameLog = new GameLog();
 
     private final Zone stackZone = new Zone(ZoneType.Stack, this);
-    
+
     private Direction turnOrder = Direction.getDefaultDirection();
 
     private long timestamp = 0;
@@ -152,7 +152,7 @@ public class Game {
 
     /**
      * Gets the players who are still fighting to win, in turn order.
-     * 
+     *
      * @return the players
      */
     public final List<Player> getPlayersInTurnOrder() {
@@ -161,10 +161,10 @@ public class Game {
     	}
     	return this.roIngamePlayersReversed;
     }
-    
+
     /**
      * Gets the players who are still fighting to win.
-     * 
+     *
      * @return the players
      */
     public final List<Player> getPlayers() {
@@ -174,7 +174,7 @@ public class Game {
     /**
      * Gets the players who participated in match (regardless of outcome).
      * <i>Use this in UI and after match calculations</i>
-     * 
+     *
      * @return the players
      */
     public final List<Player> getRegisteredPlayers() {
@@ -183,7 +183,7 @@ public class Game {
 
     /**
      * Gets the cleanup step.
-     * 
+     *
      * @return the cleanup step
      */
     public final Phase getCleanup() {
@@ -192,7 +192,7 @@ public class Game {
 
     /**
      * Gets the end of turn.
-     * 
+     *
      * @return the endOfTurn
      */
     public final EndOfTurn getEndOfTurn() {
@@ -201,7 +201,7 @@ public class Game {
 
     /**
      * Gets the end of combat.
-     * 
+     *
      * @return the endOfCombat
      */
     public final Phase getEndOfCombat() {
@@ -210,7 +210,7 @@ public class Game {
 
     /**
      * Gets the upkeep.
-     * 
+     *
      * @return the upkeep
      */
     public final Upkeep getUpkeep() {
@@ -219,7 +219,7 @@ public class Game {
 
     /**
      * Gets the untap.
-     * 
+     *
      * @return the upkeep
      */
     public final Untap getUntap() {
@@ -228,7 +228,7 @@ public class Game {
 
     /**
      * Gets the phaseHandler.
-     * 
+     *
      * @return the phaseHandler
      */
     public final PhaseHandler getPhaseHandler() {
@@ -237,7 +237,7 @@ public class Game {
 
     /**
      * Gets the stack.
-     * 
+     *
      * @return the stack
      */
     public final MagicStack getStack() {
@@ -246,7 +246,7 @@ public class Game {
 
     /**
      * Gets the static effects.
-     * 
+     *
      * @return the staticEffects
      */
     public final StaticEffects getStaticEffects() {
@@ -255,7 +255,7 @@ public class Game {
 
     /**
      * Gets the trigger handler.
-     * 
+     *
      * @return the triggerHandler
      */
     public final TriggerHandler getTriggerHandler() {
@@ -264,7 +264,7 @@ public class Game {
 
     /**
      * Gets the combat.
-     * 
+     *
      * @return the combat
      */
     public final Combat getCombat() {
@@ -273,7 +273,7 @@ public class Game {
 
     /**
      * Gets the game log.
-     * 
+     *
      * @return the game log
      */
     public final GameLog getGameLog() {
@@ -282,7 +282,7 @@ public class Game {
 
     /**
      * Gets the stack zone.
-     * 
+     *
      * @return the stackZone
      */
     public final Zone getStackZone() {
@@ -305,7 +305,7 @@ public class Game {
         });
         return list;
     }
-    
+
     /**
      * Get the turn order.
      * @return the Direction in which the turn order of this Game currently
@@ -314,7 +314,7 @@ public class Game {
     public final Direction getTurnOrder() {
     	return this.turnOrder;
     }
-    
+
     public final void reverseTurnOrder() {
     	this.turnOrder = this.turnOrder.getOtherDirection();
     }
@@ -325,7 +325,7 @@ public class Game {
 
     /**
      * Create and return the next timestamp.
-     * 
+     *
      * @return the next timestamp
      */
     public final long getNextTimestamp() {
@@ -335,7 +335,7 @@ public class Game {
 
     /**
      * Gets the timestamp.
-     * 
+     *
      * @return the timestamp
      */
     public final long getTimestamp() {
@@ -376,7 +376,7 @@ public class Game {
 
         final GameOutcome result = new GameOutcome(reason, getRegisteredPlayers());
         result.setTurnsPlayed(getPhaseHandler().getTurn());
-        
+
         this.outcome = result;
         match.addGamePlayed(this);
 
@@ -465,7 +465,7 @@ public class Game {
      * <p>
      * compareTypeAmountInPlay.
      * </p>
-     * 
+     *
      * @param player
      *            a {@link forge.game.player.Player} object.
      * @param type
@@ -484,7 +484,7 @@ public class Game {
      * <p>
      * compareTypeAmountInGraveyard.
      * </p>
-     * 
+     *
      * @param player
      *            a {@link forge.game.player.Player} object.
      * @param type
@@ -663,13 +663,13 @@ public class Game {
     }
 
     public Multimap<Player, Card> chooseCardsForAnte(final boolean matchRarity) {
-        
+
         Multimap<Player, Card> anteed = ArrayListMultimap.create();
-        
+
         if (matchRarity) {
-        
+
             boolean onePlayerHasTimeShifted = false;
-            
+
             List<CardRarity> validRarities = new ArrayList<>(Arrays.asList(CardRarity.values()));
             for (final Player player : getPlayers()) {
                 Set<CardRarity> playerRarity = getValidRarities(player.getCardsIn(ZoneType.Library));
@@ -678,32 +678,32 @@ public class Game {
                 }
                 validRarities.retainAll(playerRarity);
             }
-            
+
             if (validRarities.size() == 0) { //If no possible rarity matches were found, use the original method to choose antes
                 for (Player player : getPlayers()) {
                     chooseRandomCardsForAnte(player, anteed);
                 }
                 return anteed;
             }
-            
+
             //If possible, don't ante basic lands
             if (validRarities.size() > 1) {
                 validRarities.remove(CardRarity.BasicLand);
             }
-            
+
             if (validRarities.contains(CardRarity.Special)) {
                 onePlayerHasTimeShifted = false;
             }
-            
+
             CardRarity anteRarity = validRarities.get(new Random().nextInt(validRarities.size()));
-            
+
             System.out.println("Rarity chosen for ante: " + anteRarity.name());
-            
+
             for (final Player player : getPlayers()) {
-                
+
                 List<Card> library = new ArrayList<>(player.getCardsIn(ZoneType.Library));
                 List<Card> toRemove = new ArrayList<>();
-                
+
                 //Remove all cards that aren't of the chosen rarity
                 for (Card card : library) {
                     if (onePlayerHasTimeShifted && card.getRarity() == CardRarity.Special) {
@@ -722,28 +722,28 @@ public class Game {
                         }
                     }
                 }
-                
+
                 library.removeAll(toRemove);
-                
+
                 if (library.size() > 0) { //Make sure that matches were found. If not, use the original method to choose antes
                     Card ante = library.get(new Random().nextInt(library.size()));
                     anteed.put(player, ante);
                 } else {
                     chooseRandomCardsForAnte(player, anteed);
                 }
-                
+
             }
-        
+
         } else {
             for (Player player : getPlayers()) {
                 chooseRandomCardsForAnte(player, anteed);
             }
         }
-        
+
         return anteed;
 
     }
-    
+
     private void chooseRandomCardsForAnte(final Player player, final Multimap<Player, Card> anteed) {
         final List<Card> lib = player.getCardsIn(ZoneType.Library);
         Predicate<Card> goodForAnte = Predicates.not(CardPredicates.Presets.BASIC_LANDS);
@@ -754,7 +754,7 @@ public class Game {
         }
         anteed.put(player, ante);
     }
-    
+
     private Set<CardRarity> getValidRarities(final Iterable<Card> cards) {
         Set<CardRarity> rarities = new HashSet<>();
         for (Card card : cards) {

@@ -15,9 +15,10 @@ import forge.util.storage.IStorage;
 import forge.util.storage.StorageBase;
 
 
- /**
- * The class holding game invariants, such as cards, editions, game formats. All that data, which is not supposed to be changed by player
- * 
+/**
+ * The class holding game invariants, such as cards, editions, game formats. All
+ * that data, which is not supposed to be changed by player.
+ *
  * @author Max
  */
 public class StaticData {
@@ -63,7 +64,7 @@ public class StaticData {
         this.printSheets = new StorageBase<PrintSheet>("Special print runs", new PrintSheet.Reader(new File(blockDataFolder, "printsheets.txt")));
     }
 
-    public final static StaticData instance() { 
+    public final static StaticData instance() {
         return lastInstance;
     }
 
@@ -75,7 +76,7 @@ public class StaticData {
     public IStorage<FatPack.Template> getFatPacks() {
         return fatPacks;
     }
-    
+
     public IStorage<BoosterBox.Template> getBoosterBoxes() {
         return boosterBoxes;
     }

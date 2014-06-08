@@ -6,12 +6,12 @@
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
@@ -35,9 +35,13 @@ import java.util.Map.Entry;
 public final class CardDb implements ICardDatabase {
     public final static String foilSuffix = "+";
     public final static char NameSetSeparator = '|';
-    
+
     // need this to obtain cardReference by name+set+artindex
-    private final ListMultimap<String, PaperCard> allCardsByName = Multimaps.newListMultimap(new TreeMap<String,Collection<PaperCard>>(String.CASE_INSENSITIVE_ORDER),  CollectionSuppliers.<PaperCard>arrayLists());
+    private final ListMultimap<String, PaperCard> allCardsByName =
+        Multimaps.newListMultimap(
+            new TreeMap<String,Collection<PaperCard>>(
+                String.CASE_INSENSITIVE_ORDER),
+                CollectionSuppliers.<PaperCard>arrayLists());
     private final Map<String, PaperCard> uniqueCardsByName = new TreeMap<String, PaperCard>(String.CASE_INSENSITIVE_ORDER);
     private final Map<String, CardRules> rulesByName;
 
@@ -52,32 +56,32 @@ public final class CardDb implements ICardDatabase {
         Earliest(false),
         EarliestCoreExp(true),
         Random(false);
-        
+
         final boolean filterSets;
         private SetPreference(boolean filterIrregularSets) {
             filterSets = filterIrregularSets;
         }
-        
+
         public boolean accept(CardEdition ed) {
-            return !filterSets || ed.getType() == Type.CORE || ed.getType() == Type.EXPANSION || ed.getType() == Type.REPRINT; 
+            return !filterSets || ed.getType() == Type.CORE || ed.getType() == Type.EXPANSION || ed.getType() == Type.REPRINT;
         }
     }
-    
+
     // NO GETTERS/SETTERS HERE!
     private static class CardRequest {
         public String cardName;
         public String edition;
         public int artIndex;
         public boolean isFoil;
-        
+
         public CardRequest(String name, String edition, int artIndex, boolean isFoil) {
             cardName = name;
             this.edition = edition;
             this.artIndex = artIndex;
             this.isFoil = isFoil;
         }
-        
-        public static CardRequest fromString(String name) { 
+
+        public static CardRequest fromString(String name) {
             boolean isFoil = name.endsWith(foilSuffix);
             if (isFoil) {
                 name = name.substring(0, name.length() - foilSuffix.length());
@@ -93,7 +97,7 @@ public final class CardDb implements ICardDatabase {
                 cardName = cardName.substring(0, cardName.length() - foilSuffix.length());
                 isFoil = true;
             }
-            
+
             int artIndex = artPos > 0 ? Integer.parseInt(nameParts[artPos]) : 0;
             String setName = setPos > 0 ? nameParts[setPos] : null;
             if ("???".equals(setName)) {
@@ -103,14 +107,14 @@ public final class CardDb implements ICardDatabase {
             return new CardRequest(cardName, setName, artIndex, isFoil);
         }
     }
-    
+
     public CardDb(Map<String, CardRules> rules, CardEdition.Collection editions0, boolean logMissingPerEdition, boolean logMissingSummary) {
         this.rulesByName = rules;
         this.editions = editions0;
         Set<String> allMissingCards = new LinkedHashSet<String>();
         List<String> missingCards = new ArrayList<String>();
         for (CardEdition e : editions.getOrderedEditions()) {
-            boolean isCoreExpSet = e.getType() == CardEdition.Type.CORE || e.getType() == CardEdition.Type.EXPANSION || e.getType() == CardEdition.Type.REPRINT; 
+            boolean isCoreExpSet = e.getType() == CardEdition.Type.CORE || e.getType() == CardEdition.Type.EXPANSION || e.getType() == CardEdition.Type.REPRINT;
             if (logMissingPerEdition && isCoreExpSet) {
                 System.out.print(e.getName() + " (" + e.getCards().length + " cards)");
             }
@@ -145,7 +149,7 @@ public final class CardDb implements ICardDatabase {
             }
             missingCards.clear();
         }
-        
+
         if (logMissingSummary) {
             System.out.printf("Totally %d cards not implemented: %s\n", allMissingCards.size(), StringUtils.join(allMissingCards, " | "));
         }
@@ -199,20 +203,20 @@ public final class CardDb implements ICardDatabase {
         }
         return tryGetCard(request);
     }
-    
+
     private PaperCard tryGetCard(CardRequest request) {
         Collection<PaperCard> cards = allCardsByName.get(request.cardName);
         if (null == cards) { return null; }
 
         PaperCard result = null;
-        
+
         String reqEdition = request.edition;
         if (reqEdition != null && !editions.contains(reqEdition)) {
             CardEdition edition = editions.get(reqEdition);
             if (edition != null)
                 reqEdition =  edition.getCode();
         }
-        
+
         if (request.artIndex <= 0) { // this stands for 'random art'
             List<PaperCard> candidates = new ArrayList<PaperCard>(9); // 9 cards with same name per set is a maximum of what has been printed (Arnchenemy)
             for (PaperCard pc : cards) {
@@ -233,20 +237,20 @@ public final class CardDb implements ICardDatabase {
             }
         }
         if (result == null) { return null; }
-        
+
         return request.isFoil ? getFoiled(result) : result;
     }
-    
+
     @Override
     public PaperCard getCardFromEdition(final String cardName, SetPreference fromSet) {
         return getCardFromEdition(cardName, null, fromSet);
     }
-    
+
     @Override
     public PaperCard getCardFromEdition(final String cardName, final Date printedBefore, final SetPreference fromSet) {
         return getCardFromEdition(cardName, printedBefore, fromSet, -1);
     }
-    
+
     @Override
     public PaperCard getCardFromEdition(final String cardName, final Date printedBefore, final SetPreference fromSet, int artIndex) {
         final CardRequest cr = CardRequest.fromString(cardName);
@@ -260,7 +264,7 @@ public final class CardDb implements ICardDatabase {
         if (artIndex == -1 && cr.artIndex > 0) {
             artIndex = cr.artIndex;
         }
-        
+
         int sz = cards.size();
         if (fromSet == SetPreference.Earliest || fromSet == SetPreference.EarliestCoreExp) {
             for (int i = sz - 1 ; i >= 0 ; i--) {
@@ -325,7 +329,7 @@ public final class CardDb implements ICardDatabase {
         Collection<PaperCard> cards = allCardsByName.get(cardName);
         if (null == cards) {
             return 0;
-        } 
+        }
 
         for (PaperCard pc : cards) {
             if (pc.getEdition().equalsIgnoreCase(setName)) {
@@ -380,7 +384,7 @@ public final class CardDb implements ICardDatabase {
             return false;
         }
     }
-    
+
     public StringBuilder appendCardToStringBuilder(PaperCard card, StringBuilder sb) {
         final boolean hasBadSetInfo = "???".equals(card.getEdition()) || StringUtils.isBlank(card.getEdition());
         sb.append(card.getName());
@@ -398,7 +402,7 @@ public final class CardDb implements ICardDatabase {
 
         return sb;
     }
-    
+
     public String cardToString(PaperCard pc) {
         return appendCardToStringBuilder(pc, new StringBuilder()).toString();
     }
@@ -434,7 +438,7 @@ public final class CardDb implements ICardDatabase {
                 cE = CardEdition.UNKNOWN;
             }
         }
-            
+
 
         // Write to log that attempt,
         if (cR == CardRarity.Unknown) {
@@ -443,7 +447,7 @@ public final class CardDb implements ICardDatabase {
         else {
             System.err.println(String.format("An unsupported card was requested: \"%s\" from \"%s\" set. We're sorry, but you cannot use this card yet.", request.cardName, cE.getName()));
         }
-        
+
         return new PaperCard(CardRules.getUnsupportedCardNamed(request.cardName), cE.getCode(), cR, 1);
 
     }
@@ -463,7 +467,7 @@ public final class CardDb implements ICardDatabase {
             }
 
             result = rulesByName.put(cardName, rules);
-            
+
             // 1. generate all paper cards from edition data we have (either explicit, or found in res/editions, or add to unknown edition)
             List<PaperCard> paperCards = new ArrayList<PaperCard>();
             if (null == whenItWasPrinted || whenItWasPrinted.isEmpty()) {

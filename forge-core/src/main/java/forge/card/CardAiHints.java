@@ -1,18 +1,11 @@
 package forge.card;
 
-/** 
- * TODO: Write javadoc for this type.
- *
- */
 public class CardAiHints {
-
-    
     private final boolean isRemovedFromAIDecks;
     private final boolean isRemovedFromRandomDecks;
 
     private final DeckHints deckHints;
     private final DeckHints deckNeeds;
-
 
     public CardAiHints(boolean remAi, boolean remRandom, DeckHints dh, DeckHints dn) {
         isRemovedFromAIDecks = remAi;
@@ -23,7 +16,7 @@ public class CardAiHints {
 
     /**
      * Gets the rem ai decks.
-     * 
+     *
      * @return the rem ai decks
      */
     public boolean getRemAIDecks() {
@@ -32,7 +25,7 @@ public class CardAiHints {
 
     /**
      * Gets the rem random decks.
-     * 
+     *
      * @return the rem random decks
      */
     public boolean getRemRandomDecks() {
@@ -55,7 +48,7 @@ public class CardAiHints {
 
     /**
      * Gets the ai status comparable.
-     * 
+     *
      * @return the ai status comparable
      */
     public Integer getAiStatusComparable() {
@@ -69,6 +62,4 @@ public class CardAiHints {
             return Integer.valueOf(1);
         }
     }
-
-
 }
